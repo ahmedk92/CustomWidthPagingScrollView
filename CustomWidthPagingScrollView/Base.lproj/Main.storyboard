@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,122 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CustomWidthPagingScrollView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i93-dd-87G" customClass="CustomPagedScrollView" customModule="CustomWidthPagingScrollView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="325" height="647"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEY-4T-bwE">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="647"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" placeholder="YES" id="F1v-xU-frp"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LEY-4T-bwE" firstAttribute="leading" secondItem="i93-dd-87G" secondAttribute="leading" id="9SU-rV-c3Q"/>
+                                    <constraint firstItem="LEY-4T-bwE" firstAttribute="top" secondItem="i93-dd-87G" secondAttribute="top" id="MZF-GP-Hru"/>
+                                    <constraint firstAttribute="bottom" secondItem="LEY-4T-bwE" secondAttribute="bottom" id="NCJ-qj-E9q"/>
+                                    <constraint firstItem="LEY-4T-bwE" firstAttribute="height" secondItem="i93-dd-87G" secondAttribute="height" id="RGs-S7-G6a"/>
+                                    <constraint firstAttribute="trailing" secondItem="LEY-4T-bwE" secondAttribute="trailing" id="SW4-R1-Hby"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wba-Z5-gND"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="i93-dd-87G" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-50" id="W3q-cc-7Gs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="i93-dd-87G" secondAttribute="bottom" id="Z2W-iw-kjV"/>
+                            <constraint firstItem="i93-dd-87G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f3w-Eq-xTK"/>
+                            <constraint firstItem="i93-dd-87G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qaF-Pu-nZr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="constraint" destination="W3q-cc-7Gs" id="9Tp-y8-WPQ"/>
+                        <outlet property="scrollView" destination="i93-dd-87G" id="4Gb-yh-eyo"/>
+                        <outlet property="stackView" destination="LEY-4T-bwE" id="tUD-HT-RRM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-2" y="-152"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="pGM-fw-0zb">
+            <objects>
+                <viewController storyboardIdentifier="ContentViewController" id="31H-Gq-4rm" customClass="ContentViewController" customModule="CustomWidthPagingScrollView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UOL-1a-8fN" customClass="ContentView" customModule="CustomWidthPagingScrollView" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="It1-b7-KN1">
+                                <rect key="frame" x="0.0" y="20" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0A-Tz-tjz">
+                                <rect key="frame" x="283" y="20" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyi-Bs-YCW">
+                                <rect key="frame" x="325" y="20" width="50" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iek-GG-Sf9">
+                                        <rect key="frame" x="49" y="0.0" width="1" height="647"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="yLO-jm-AfH"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="iek-GG-Sf9" secondAttribute="bottom" id="I6S-pf-Suj"/>
+                                    <constraint firstAttribute="width" constant="50" id="Wmb-fa-PY5"/>
+                                    <constraint firstItem="iek-GG-Sf9" firstAttribute="trailing" secondItem="qyi-Bs-YCW" secondAttribute="trailing" id="Ymt-jb-6On"/>
+                                    <constraint firstItem="iek-GG-Sf9" firstAttribute="top" secondItem="qyi-Bs-YCW" secondAttribute="top" id="bgB-ve-HBo"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqh-ou-Lnh">
+                                <rect key="frame" x="166.5" y="333" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="a0A-Tz-tjz" firstAttribute="top" secondItem="VS0-aD-vnB" secondAttribute="top" id="4qU-1g-yb7"/>
+                            <constraint firstItem="It1-b7-KN1" firstAttribute="leading" secondItem="VS0-aD-vnB" secondAttribute="leading" id="6sN-Bz-Epb"/>
+                            <constraint firstItem="It1-b7-KN1" firstAttribute="top" secondItem="VS0-aD-vnB" secondAttribute="top" id="Qjv-hN-Lst"/>
+                            <constraint firstItem="qyi-Bs-YCW" firstAttribute="leading" secondItem="a0A-Tz-tjz" secondAttribute="trailing" id="bEd-Q2-r6l"/>
+                            <constraint firstItem="wqh-ou-Lnh" firstAttribute="centerY" secondItem="VS0-aD-vnB" secondAttribute="centerY" id="jJg-LL-kpo"/>
+                            <constraint firstItem="wqh-ou-Lnh" firstAttribute="centerX" secondItem="VS0-aD-vnB" secondAttribute="centerX" id="lLh-O0-N27"/>
+                            <constraint firstItem="qyi-Bs-YCW" firstAttribute="top" secondItem="VS0-aD-vnB" secondAttribute="top" id="oOS-PT-IP6"/>
+                            <constraint firstItem="VS0-aD-vnB" firstAttribute="trailing" secondItem="qyi-Bs-YCW" secondAttribute="trailing" placeholder="YES" id="yka-86-rc7"/>
+                            <constraint firstItem="VS0-aD-vnB" firstAttribute="bottom" secondItem="qyi-Bs-YCW" secondAttribute="bottom" id="yxD-yv-i1J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VS0-aD-vnB"/>
+                    </view>
+                    <connections>
+                        <outlet property="barView" destination="qyi-Bs-YCW" id="DRX-Ff-H9Z"/>
+                        <outlet property="label" destination="wqh-ou-Lnh" id="bwK-Zb-xam"/>
+                        <outlet property="wLabel" destination="a0A-Tz-tjz" id="lpI-cd-gv9"/>
+                        <outlet property="xLabel" destination="It1-b7-KN1" id="eX0-lp-jbX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KhS-vu-yFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="866" y="-152"/>
         </scene>
     </scenes>
 </document>

@@ -13,6 +13,7 @@
 		28AA80A7218787DE00A7325B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28AA80A6218787DE00A7325B /* Assets.xcassets */; };
 		28AA80AA218787DE00A7325B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28AA80A8218787DE00A7325B /* LaunchScreen.storyboard */; };
 		28AA80B5218787DE00A7325B /* CustomWidthPagingScrollViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AA80B4218787DE00A7325B /* CustomWidthPagingScrollViewTests.swift */; };
+		28AA80C0218788D900A7325B /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AA80BF218788D900A7325B /* ContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		28AA80B0218787DE00A7325B /* CustomWidthPagingScrollViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomWidthPagingScrollViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28AA80B4218787DE00A7325B /* CustomWidthPagingScrollViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWidthPagingScrollViewTests.swift; sourceTree = "<group>"; };
 		28AA80B6218787DE00A7325B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28AA80BF218788D900A7325B /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				28AA809F218787DD00A7325B /* AppDelegate.swift */,
+				28AA80BF218788D900A7325B /* ContentViewController.swift */,
 				28AA80A1218787DD00A7325B /* ViewController.swift */,
 				28AA80A3218787DD00A7325B /* Main.storyboard */,
 				28AA80A6218787DE00A7325B /* Assets.xcassets */,
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AA80A2218787DD00A7325B /* ViewController.swift in Sources */,
+				28AA80C0218788D900A7325B /* ContentViewController.swift in Sources */,
 				28AA80A0218787DD00A7325B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
